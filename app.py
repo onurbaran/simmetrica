@@ -6,7 +6,12 @@ import yaml
 import re
 import argparse
 
-from collections import OrderedDict
+try:
+    from collections import OrderedDict
+except ImportError:
+    #for Python <= 2.6.x
+    from ordereddict import OrderedDict
+
 
 from flask import Flask, Response, request, render_template
 from simmetrica import Simmetrica
